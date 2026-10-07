@@ -17,6 +17,7 @@ import (
 	cmdReopen "github.com/cli/cli/v2/pkg/cmd/pr/reopen"
 	cmdRevert "github.com/cli/cli/v2/pkg/cmd/pr/revert"
 	cmdReview "github.com/cli/cli/v2/pkg/cmd/pr/review"
+	cmdShare "github.com/cli/cli/v2/pkg/cmd/pr/share"
 	cmdStatus "github.com/cli/cli/v2/pkg/cmd/pr/status"
 	cmdUpdateBranch "github.com/cli/cli/v2/pkg/cmd/pr/update-branch"
 	cmdView "github.com/cli/cli/v2/pkg/cmd/pr/view"
@@ -55,6 +56,7 @@ func NewCmdPR(f *cmdutil.Factory, telemetry ghtelemetry.InvocationRecorder) *cob
 
 	cmdutil.AddGroup(cmd, "Targeted commands",
 		cmdView.NewCmdView(f, nil),
+		cmdShare.NewCmdShare(f, nil),
 		cmdDiff.NewCmdDiff(f, nil),
 		cmdCheckout.NewCmdCheckout(f, nil),
 		cmdChecks.NewCmdChecks(f, nil),

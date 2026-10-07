@@ -33,6 +33,7 @@ const (
 	pagerKey              = "pager"
 	promptKey             = "prompt"
 	preferEditorPromptKey = "prefer_editor_prompt"
+	prShareTemplateKey    = "pr_share_template"
 	spinnerKey            = "spinner"
 	telemetryKey          = "telemetry"
 	userKey               = "user"
@@ -794,6 +795,14 @@ var Options = []ConfigOption{
 		AllowedValues: []string{"enabled", "disabled", "log"},
 		CurrentValue: func(c gh.Config, hostname string) string {
 			return c.Telemetry().Value
+		},
+	},
+	{
+		Key:          prShareTemplateKey,
+		Description:  "the default Go template used by `gh pr share` to render a pull request summary",
+		DefaultValue: "",
+		CurrentValue: func(c gh.Config, hostname string) string {
+			return c.GetOrDefault(hostname, prShareTemplateKey).Unwrap().Value
 		},
 	},
 }

@@ -109,6 +109,7 @@ func Test_listRun(t *testing.T) {
 				accessible_prompter=disabled
 				spinner=enabled
 				telemetry=enabled
+				pr_share_template=
 			`),
 		},
 	}
